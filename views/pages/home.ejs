@@ -1,0 +1,33 @@
+<%- include('../partials/header'); %> 
+
+    <main class="main main-home container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="main-header">Home</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>Wine Selection</h2>
+            </div>
+            <% for(let [key, value] of Object.entries(data)) { %>
+                <div class="col-sm-12">
+                    <section class="row home-section">
+                        <div class="col-sm-12">
+                            <h3 class="section-header"><a href="/wines/<%= key %>"><%= key %></a></h3>
+                            <hr class="section-break">
+                        </div>
+                        <% for( let i = 0; i < 4; i++ ) { %>
+                            <div class="col-md-3 home-wines">
+                                <h4 class="home-header-h4"><a href="/wines/<%= key %>/<%= value[i].id %>"><%= value[i].wine %></a></h4>
+                                <img class="img-fluid" src="<%= value[i].image %>" alt="<%= value[i.wine] %>">
+                            </div>
+                        <% } %>
+                    </section>
+                    
+                </div>
+            <% } %>
+        </div>
+    </main>
+
+<%- include('../partials/footer'); %> 
